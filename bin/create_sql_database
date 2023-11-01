@@ -1,0 +1,9 @@
+. config
+
+set -x
+
+az sql db create                                        \
+        -g "$AZURE_RESOURCE_GROUP"                      \
+        -s "$MSSQL_SERVER"                              \
+        -n "$MSSQL_DATABASE"                            \
+        --service-objective GP_Gen5_2

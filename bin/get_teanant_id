@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+az account tenant list 2>&1 | grep -v "WARNING" | jq '.[].tenantId' | cut -d\" -f2

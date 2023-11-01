@@ -1,0 +1,26 @@
+. config
+
+set -x
+
+# Create a web app and deploy the code
+#az webapp up                  \
+#        -g "$AZURE_RESOURCE_GROUP"                      \
+#        -l "$MSSQL_LOCATION"                            \
+#        -p <azure-sql-db-django-plan>                   \
+#        --sku B1 -n <azure-sql-db-django-api>           \
+#        -r 'PYTHON:3.11'
+
+if [ "$CREATE" == "yes" ]; then
+az webapp config appsettings set                                           \
+        --resource-group "$AZURE_RESOURCE_GROUP"                           \
+        --name           "$WEBAPP_NAME"                                    \
+        --settings                                                         \
+                DB_SERVER="${MSSQL_SERVER}.database.windows.net"           \
+                DB_NAME="$MSSQL_DATABASE"                                  \
+                DB_USER="$MSSQL_ADMIN_UID"                                 \
+                DB_PASSWORD="$MSSQL_ADMIN_PWD"
+fi
+
+az webapp config appsettings list                                          \
+        --resource-group "$AZURE_RESOURCE_GROUP"                           \
+        --name           "$WEBAPP_NAME"

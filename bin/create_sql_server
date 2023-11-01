@@ -1,0 +1,9 @@
+. config
+
+set -x
+az sql server create                                        \
+        -n "$MSSQL_SERVER"                                  \
+        -l "$MSSQL_LOCATION"                                \
+        --admin-user "$MSSQL_ADMIN_UID"                     \
+        --admin-password "$MSSQL_ADMIN_PWD"                 \
+        -g "$AZURE_RESOURCE_GROUP"

@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+az account show --query id --output tsv

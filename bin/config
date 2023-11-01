@@ -1,0 +1,9 @@
+AZURE_RESOURCE_GROUP=rg-doktool
+
+MSSQL_SERVER=doktool-sqlserver-playground
+MSSQL_DATABASE=playground
+MSSQL_LOCATION="Germany West Central"
+MSSQL_ADMIN_UID=sqladmin
+MSSQL_ADMIN_PWD="1q2w3e4r5t6z7u!"
+
+WEBAPP_NAME="doktool-webapp"
